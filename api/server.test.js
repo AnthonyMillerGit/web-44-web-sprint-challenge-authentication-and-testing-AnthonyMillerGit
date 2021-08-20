@@ -50,12 +50,12 @@ describe('[POST]/api/auth/register', () => {
 })
 
 describe('[POST]/api/auth/login', () => {
-  it('returns status 401 when credentials are provided', async () => {
+  it('returns status 401 if happy', async () => {
     const res = await request(server).post('/api/auth/login').send(testData)
     expect(res.status).toBe(401)
   })
 
-  it('responds with correct error if credentials are invalid', async () => {
+  it('responds with correct error if sad', async () => {
     const res = await request(server).post('/api/auth/login')
       .send({
         username: 't',
